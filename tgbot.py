@@ -49,13 +49,32 @@ def kanal_uz(update:Update, context:CallbackContext):
         [InlineKeyboardButton(text='4-kanal', url='https://t.me/Ake_Forex_Treyding_Shokh')]
     ])
     bot.sendMessage(chat_id=chat_id, reply_markup=keyboard, text="Botimiz sizga shu kanallarni tavsiya qiladi")
+
+def web_sayt_uz(update:Update, context:CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+    keyboard=InlineKeyboardMarkup([
+        [InlineKeyboardButton(text='1-sayt', url='https://tradersunion.com/uz/brokers/forex/view/pocketoption/')],
+        [InlineKeyboardButton(text='2-sayt', url='https://tradersunion.com/uz/brokers/forex/view/roboforex/')],
+        [InlineKeyboardButton(text='3-sayt', url='https://tradersunion.com/uz/brokers/forex/view/exness/')],
+        [InlineKeyboardButton(text='4-sayt', url='https://tradersunion.com/uz/brokers/forex/view/libertex/')],
+        [InlineKeyboardButton(text='5-sayt',url='https://tradersunion.com/uz/brokers/forex/view/forex4you/')],
+        [InlineKeyboardButton(text='6-sayt', url='https://tradersunion.com/uz/brokers/forex/view/ic_markets/')]
+    ])
+    bot.sendMessage(chat_id=chat_id,reply_markup=keyboard, text='Botimiz sizga ushbu Web saytlarni tavsiya qiladi' )
 updater=Updater(token=TOKEN)
 dp=updater.dispatcher
-
+def bot_haqida_uz(update:Update, context:CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+    bot.sendMessage(chat_id=chat_id, text="Sizga ham shunaqa telegram botlari kerak bulsa bizga murojat qiling!")
+    bot.sendMessage(chat_id=chat_id, text='@Jasurbek070910')
 
 dp.add_handler(CommandHandler('start',start))
 dp.add_handler(MessageHandler(Filters.text('Asosiy menuga qaytish 🔙'),start))
 dp.add_handler(CallbackQueryHandler(query))
 dp.add_handler(MessageHandler(Filters.text('Telegramdagi kanallar 👥'),kanal_uz))
+dp.add_handler(MessageHandler(Filters.text('Web saytlar 🕸'), web_sayt_uz))
+dp.add_handler(MessageHandler(Filters.text('Bot haqida 🤖'),bot_haqida_uz))
 updater.start_polling()
 updater.idle()
