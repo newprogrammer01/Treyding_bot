@@ -3,6 +3,10 @@ from telegram import Update, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboard
 import os
 TOKEN=os.environ['TOKEN']
 import json
+import sys
+from flask import Flask
+app=Flask(__name__)
+@app.route('/')
 
 
 def start(update:Update, context:CallbackContext):
