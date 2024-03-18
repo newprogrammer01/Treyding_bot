@@ -124,7 +124,53 @@ def kanal_ru(update:Update, context:CallbackContext):
     ])
     bot.sendMessage(chat_id=chat_id, reply_markup=keyboard, text='Наш бот порекомендует вам эти каналы')
 
+def web_sayt_ru(update:Update, context:CallbackContext):
+    bot=context.bot
+    chat_id=update.message.chat.id
+    keyboard=InlineKeyboardMarkup([
+        [InlineKeyboardButton(text='Сайт 1', url='https://landing.deriv.com/global-markets-spreads-2-ru/?utm_source=google&utm_medium=ppc-paid_search&utm_campaign=cis-uz-prosp-all-fx_spreads-0124-ru-google&utm_term=online%20trading&t=jA_BJFRk2x3RRLQ0YTtceWNd7ZgqdRLk&gclid=Cj0KCQjwqdqvBhCPARIsANrmZhPs4dCiGrR0CxqzztbYW-8WJWl3YKMv6ByKgPtjtoi4-pj-ZSwt8goaAg-AEALw_wcB')],
+        [InlineKeyboardButton(text='Сайт 2', url='https://www.xm.com/landing/promo-shares/ru?gid=217888&gad_source=1&gclid=Cj0KCQjwqdqvBhCPARIsANrmZhNzY2XxGy-siwdu2kT1pWtpBUheD0ohz28YEnl7rjKh1xhnFI-7xW4aApRGEALw_wcB')],
+        [InlineKeyboardButton(text='Сайт 3', url='https://promo.fxclub.org/lp/ru-ru/lbx-portfolio-b/?utm_source=google&utm_medium=sem&utm_mediumtype=search&utm_campaign=search_uz_generic_invest&utm_term=forex%20trade_b&utm_country=uz&gad_source=1&gclid=Cj0KCQjwqdqvBhCPARIsANrmZhNsi_48ODXRLMcIDjx5BVeVS95kiATjxAlyyUmPEtYda4z-6gCM2-IaAmmGEALw_wcB')],
+        [InlineKeyboardButton(text='Сайт 4', url='https://www.fortrade.com/ru/glossary/web-trader-web-trading-platform/')]
+    ])
+    bot.sendMessage(chat_id=chat_id, reply_markup=keyboard, text='Наш бот порекомендует вам эти сайты')
 
+def you_tobe_ru(update:Update, context:CallbackContext):
+    bot=context.bot
+    chat_id=update.message.chat.id
+    keyboard=InlineKeyboardMarkup([
+        [InlineKeyboardButton(text='Сергей Виноградов', url='https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa1J2XzhaeHFLQXJXc3pCOHNNTllfWkdLOC1nd3xBQ3Jtc0tsemlRS0lnM3BXeEduV3lOVEJveFdqLUhiM3lvSTVuVWtuTHB3M2dKSFFzaHpzNE11RUlPUU92UEN0cDloLTlldHRGY2hMWGFaSWFnRkRWUFhzWDNXWWxiUURJOXlpQjFEZFYwM0ZSM2l4ZEdvUTlFWQ&q=https%3A%2F%2Fgoo.gl%2FWN7Q6Z&v=2Kx2-U6jXw4')],
+        [InlineKeyboardButton(text='Батя', url='https://www.youtube.com/@buildmountain')],
+        [InlineKeyboardButton(text='CRYPTOR BLOG', url='https://www.youtube.com/@CrypTorBlog')],
+        [InlineKeyboardButton(text='Егор Егоров', url='https://www.youtube.com/@EGOROV_official')]
+    ])
+    bot.sendMessage(chat_id=chat_id, reply_markup=keyboard, text='добро пожаловать')
+
+def group_ru(update:Update, context:CallbackContext):
+    bot=context.bot
+    chat_id=update.message.chat.id
+    keyboard=InlineKeyboardMarkup([
+        [InlineKeyboardButton(text='Группа 1', url='https://t.me/Trading_Privatki_Signals')],
+        [InlineKeyboardButton(text='Группа 2', url='https://t.me/tradingonline777')],
+        [InlineKeyboardButton(text='Группа 3', url='https://t.me/+-P2mCc8O34M4MTZk')]
+    ])
+    bot.sendMessage(chat_id=chat_id, reply_markup=keyboard, text='добро пожаловать')
+
+def trader_ins_ru(update:Update, context:CallbackContext):
+    bot=context.bot
+    chat_id=update.message.chat.id
+    keyboard=InlineKeyboardMarkup([
+        [InlineKeyboardButton(text='Профиль 1', url='https://www.instagram.com/big_russian_trader?igsh=bzZ0a2o0eWJzMG5t')],
+        [InlineKeyboardButton(text='Профиль 2', url='https://www.instagram.com/trading_russian?igsh=MXFkcWx6eGNheW5paQ==')],
+        [InlineKeyboardButton(text='Профиль 2', url='https://www.instagram.com/the_russian_trader?igsh=MWo0YTJtZzJicHgzbw==')]
+    ])
+    bot.sendMessage(chat_id=chat_id, reply_markup=keyboard, text='добро пожаловать')
+
+def bot_haqida_ru(update:Update, context:CallbackContext):
+    bot=context.bot
+    chat_id=update.message.chat.id
+    bot.sendMessage(chat_id=chat_id, text='Свяжитесь с нами, если вам нужны такие Telegram-боты!')
+    bot.sendMessage(chat_id=chat_id, text='https://t.me/Programmer_adminn')
 
 
 updater=Updater(token=TOKEN)
@@ -143,5 +189,11 @@ dp.add_handler(MessageHandler(Filters.text('You tobe kanallar 👥'),you_tobe_uz
 # ruscha varianti
 dp.add_handler(MessageHandler(Filters.text('Вернитесь в главное меню 🔙'),start))
 dp.add_handler(MessageHandler(Filters.text('Telegram-каналы 👥'),kanal_ru))
+dp.add_handler(MessageHandler(Filters.text('Сайты 🕸'),web_sayt_ru))
+dp.add_handler(MessageHandler(Filters.text('Вы слушаетесь каналов 👥'),you_tobe_ru))
+dp.add_handler(MessageHandler(Filters.text('Группы в Telegram 👥'), group_ru))
+dp.add_handler(MessageHandler(Filters.text('Инстаграм-профили трейдеров 🧓'), trader_ins_ru))
+dp.add_handler(MessageHandler(Filters.text('О боте 🤖'), bot_haqida_ru))
+
 updater.start_polling()
 updater.idle()
